@@ -1,0 +1,240 @@
+Magesh Kuppan
+
+Schedule:
+    Commence    : 9:30 AM
+    Tea Break   : 11:00 AM (20 mins)
+    Lunch Break : 1:00 PM (1 hr)
+    Tea Break   : 3:30 PM (20 mins)
+    Wind Up     : 5:30 PM
+
+Methodology:
+    No Powerpoints
+    100% hands on driven
+    Atleast 50% of the participants should have completed the assignments for us to move on
+
+Repository: 
+    https://github.com/tkmagesh/ibm-go-jan-2022
+
+About You
+    Name
+    Total Experience
+    Primary Skillset
+    Experience in Golang (if any)
+    Any interesting books you read / shows you watched recently
+
+
+A man called ove
+
+Software Requirements:
+    Go tools (https://go.dev)
+    Visual Studio Code (https://code.visualstudio.com)
+
+
+Why Go?
+
+    2013 - Go
+    1995 - Java 
+    1999 - .NET
+    Python
+    Ruby
+    C++
+    C
+
+    Reasons:
+        1. Ease of packaging & deployment (cloud)
+        2. Ease of development
+        3. Performance on par with 'C'
+
+    1. Simplicity
+        25 keywords
+            1. No classes (only structs & functions)
+            2. No inheritance (only composition)
+            3. No access modifiers (public, private, protected)
+            4. No exceptions (only errors)
+            5. Pointers are supported (But no pointer arithmetic)
+            6. Value by default
+    2. Performance
+
+    3. Built for concurrency
+         go, chan (data type), <- (channel operator), built in scheduler
+
+Paradox of Choice (Barry Schwartz)
+
+
+func fn(){
+
+}
+
+go fn()
+
+Thread t = new System.Threading.Thread(fn)
+t.Start()
+    
+
+To run a go program
+     go run <program-file-name> 
+
+To create a build
+     go build <program-file-name> 
+     OR
+     go build -o <binary-name> <program-file-name> 
+
+
+Data Types
+
+    string
+    bool
+
+    int
+    int8
+    int16
+    int32
+    int64
+
+    uint
+    uint8
+    uint16
+    uint32
+    uint64
+
+    float32
+    float64
+
+    complex64 (real [float32] + imaginary [float32])
+    complex128 (real [float64] + imaginary [float64])
+
+    byte (alias for uint8)
+    rune (alias for int32) (represents a unicode code point)
+
+Assignment-1
+Write a program that will print all the prime numbers between 3 to 100
+
+Assignment-2
+Display the following menu 
+		1. Add
+		2. Subtract
+		3. Multiply
+		4. Divide
+		5. Exit
+    If the user choice is 1 - 4, 
+		accept 2 numbers 
+		perform the operation
+		print the result
+		display the menu again
+	if the user choice is 5
+		exit from the application
+	If the user enters any other choice 
+		display "Invalid choice" 
+		display the menu again.
+
+Assignment-3
+    Refactor the assignment-2 solution using functions
+
+Functions
+    1. Anonymous functions
+    2. Variadic functions
+    3. Higher order functions
+        a. functions can be assigned to variables
+        b. functions can be passed as arguments to other functions
+        c. functions can be returned by other functions
+    4. handling errors
+    5. deferred functions
+    6. panic & recovery
+
+Collections
+    1. Array
+        Fixed size
+    2. Slice
+        Wrapper for an array
+        Variable size
+    3. Map
+        key/value collection
+
+Modularity
+    Before go 1.13
+        GOPATH
+            bin
+                go tool binaries
+            pkg
+                third party packages
+            src
+                github.com
+                    tkmagesh
+                        myApp1
+                            pk1
+                            pk2
+                                import "github.com/tkmagesh/myApp1/pk1"
+
+    Module
+        myApp
+            go.mod
+            main.go
+                import modulename/pkg1
+
+            /pk1
+                f1.go
+                f2.go
+            /pkg
+                f1.go
+                f2.go
+
+    to create a module
+        go mod init <module-name>
+
+    to install 3rd party modules
+        go get <module-name>
+
+    to localize the dependencies
+        go mod vendor
+
+    to install tools
+        go install <package-name>
+
+    
+Duck Typing
+    If you have an object that walks like a duck and quacks like a duck, you can treat is as a duck even though it is NOT a duck
+
+Concurrency:
+    Never ASSUME the order in which the goroutines will be executed
+    A function that has to be executed as goroutine CANNOT have any return values
+
+    To detect race conditions
+        go run --race <program.go>
+
+    Channel Operations ( <- operator )
+        ch := make(chan int) //creating the channel
+        ch <- 10            // writing
+        result := <- ch     // reading
+
+        All read operations are blocking operations
+
+        
+    Types of Channels
+        Non Buffered
+        Buffered
+
+        Non Buffered
+            A write operation will be blocked until a read operation is initiated
+
+Assignment:9
+    Modify the demo-14.go to generate the even numbers until the user hits the ENTER key
+
+IO
+    io package
+        base interfaces
+            Reader
+            Writer
+            Closer
+            Seeker
+    ioutil package
+        read file
+        write file
+
+    bufio package
+        read line
+        buffered reading & writing
+
+    os package
+        file related operations
+            creating, copying, deleting
+
